@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript on GitHub Pages</title>
+    <script>
+        function getUrlParams() {
+            const params = {};
+            const queryString = window.location.search.substring(1);
+            const pairs = queryString.split('&');
+            for (let i = 0; i < pairs.length; i++) {
+            const pair = pairs[i].split('=');
+                params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+            }
+            return params;
+        }
+        function render() {
+            var params = getUrlParams();
+            if(params['version'] === '1.0') {
+                document.write('version 1.0');
+            } else {
+                document.write('version 未知');
+            }
+        }
+    </script>
+</head>
+<body onload="render()">
+</body>
+</html>
