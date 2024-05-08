@@ -2,30 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Get URL Parameters</title>
-</head>
-<body>
-    <div id="output"></div>
- 
+    <title>JavaScript on GitHub Pages</title>
     <script>
-        // 函数用于获取URL参数
-        function getURLParameter(name) {
-            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-                results = regex.exec(location.search);
-            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        function greet() {
+            var greeting = "Hello, GitHub Pages!";
+            alert(greeting);
         }
- 
-        // 获取参数并显示在页面上
-        function displayParameter() {
-            var paramValue = getURLParameter('param');
-            document.getElementById('output').innerText = paramValue;
-        }
- 
-        // 当文档加载完成时执行
-        window.onload = function() {
-            displayParameter();
-        };
     </script>
+</head>
+<body onload="greet()">
+    <h1>Running JavaScript on GitHub Pages</h1>
+    <button onclick="greet()">Say Hello</button>
 </body>
 </html>
