@@ -4,9 +4,19 @@
     <meta charset="UTF-8">
     <title>JavaScript on GitHub Pages</title>
     <script>
+        function getUrlParams() {
+            const params = {};
+            const queryString = window.location.search.substring(1);
+            const pairs = queryString.split('&');
+            for (let i = 0; i < pairs.length; i++) {
+            const pair = pairs[i].split('=');
+                params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+            }
+            return params;
+        }
         function greet() {
             var greeting = "Hello, GitHub Pages!";
-            alert(greeting);
+            alert(getUrlParams());
         }
     </script>
 </head>
