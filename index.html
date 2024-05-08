@@ -12,16 +12,22 @@
             const pair = pairs[i].split('=');
                 params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
             }
-            return params['version'];
+            return params;
         }
         function greet() {
             var greeting = "Hello, GitHub Pages!";
             alert(getUrlParams());
         }
+        function render() {
+            var params = getUrlParams();
+            if(params['version'] === '1.0') {
+                document.write('version 1.0');
+            } else {
+                document.write('version 未知');
+            }
+        }
     </script>
 </head>
-<body onload="greet()">
-    <h1>Running JavaScript on GitHub Pages</h1>
-    <button onclick="getUrlParams()">Say Hello</button>
+<body onload="render()">
 </body>
 </html>
