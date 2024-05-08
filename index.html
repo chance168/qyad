@@ -12,7 +12,7 @@
             const pair = pairs[i].split('=');
                 params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
             }
-            return params;
+            return params['version'];
         }
         function greet() {
             var greeting = "Hello, GitHub Pages!";
