@@ -14,16 +14,13 @@
             }
             return params;
         }
-        function greet() {
-            var greeting = "Hello, GitHub Pages!";
-            alert(getUrlParams());
-        }
         function render() {
             var params = getUrlParams();
-            if(params['version'] === '1.0') {
-                document.write('version 1.0');
+            var versionStr = params['version'];
+            if(versionStr.trim().length !== 0) {
+                document.write('v2 version:'+versionStr);
             } else {
-                document.write('version 未知');
+                document.write('v2 version 未知');
             }
         }
     </script>
