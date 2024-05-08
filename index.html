@@ -1,13 +1,31 @@
-<html>
-
-<head> <title>我的个人博客</title></head>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Get URL Parameters</title>
+</head>
 <body>
-
-<h1>欢迎访问我的个人博客</h1>
-
-<p>这里是我的个人博客，我会分享一些我感兴趣的话题和经验，希望您能喜欢。</p>
-
+    <div id="output"></div>
+ 
+    <script>
+        // 函数用于获取URL参数
+        function getURLParameter(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+ 
+        // 获取参数并显示在页面上
+        function displayParameter() {
+            var paramValue = getURLParameter('param');
+            document.getElementById('output').innerText = paramValue;
+        }
+ 
+        // 当文档加载完成时执行
+        window.onload = function() {
+            displayParameter();
+        };
+    </script>
 </body>
-
 </html>
